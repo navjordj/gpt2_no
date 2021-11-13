@@ -60,7 +60,7 @@ def main():
         print("tokenized dataset on path, loading tokenized dataset")
 
         with open("tokenized_dataset.pkl", "rb") as f:
-            tokenized_dataset = pickle.load(f)
+            lm_datasets = pickle.load(f)
 
 
     block_size = config.max_position_embeddings
