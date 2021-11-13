@@ -87,3 +87,6 @@ def main():
         batched=True,
         # num_proc= None,
     )
+
+if __name__ == '__main__':
+    main()
