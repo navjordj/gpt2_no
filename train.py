@@ -38,9 +38,35 @@ from transformers.testing_utils import CaptureLogger
 import os
 import pickle
 
-logger = logging.getLogger(__name__)
+SEED=42
+
+num_train_epochs = 20
+per_device_train_batch_size = 64
+per_device_eval_batch_size = 64
+
+warmup_steps = 1000
+learning_rate = 5e-3
+
+
+def create_learning_rate_fn(
+    train_ds_size, train_batch_size, num_train_epochs, num_warmup_steps, learning_rate):
+
+    steps_per_epoch = train_ds_size // train_batch_size
+    num_train_steps = steps_per_epoch * num_train_epochs
+    warmup_fn = optax.linear_schedule(init_value=0.0, end_value=learning_rate, transition_steps=num_warmup_steps)
+    decay_fn = optax.linear_schedule(
+        init_value=learning_rate, end_value=0, transition_steps=num_train_steps - num_warmup_steps
+    )
+    schedule_fn = optax.join_schedules(schedules=[warmup_fn, decay_fn], boundaries=[num_warmup_steps])
+    return schedule_fn
+
 
 def main():
+
+    logger = logging.getLogger(__name__)
+
+    jax_devices = jax.device_count()
+
 
     print(jax.devices())
 
@@ -157,6 +183,26 @@ def main():
             "Unable to display metrics through TensorBoard because the package is not installed: "
             "Please run pip install tensorboard to enable."
         )
+
+    rng = jax.random.PRNGKey(SEED)
+    rng, dropout_rng = jax.random.split(rng)
+
+    num_epochs = int(num_train_epochs)
+    train_batch_size = int(per_device_train_batch_size) * jax_devices
+    eval_batch_size = int(per_device_eval_batch_size) * jax_devices
+    steps_per_epoch = len(train_dataset) // train_batch_size
+    total_train_steps = steps_per_epoch * num_epochs
+
+
+    linear_decay_lr_schedule_fn = create_learning_rate_fn(
+        len(train_dataset),
+        train_batch_size,
+        num_train_epochs,
+        warmup_steps,
+        learning_rate,
+    )
+
+
 
 
 
