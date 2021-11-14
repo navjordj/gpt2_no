@@ -60,6 +60,11 @@ def create_learning_rate_fn(
     schedule_fn = optax.join_schedules(schedules=[warmup_fn, decay_fn], boundaries=[num_warmup_steps])
     return schedule_fn
 
+class TrainState(train_state.TrainState):
+    dropout_rng: jnp.ndarray
+
+    def replicate(self):
+        return jax_utils.replicate(self).replace(dropout_rng=shard_prng_key(self.dropout_rng))
 
 def main():
 
@@ -206,8 +211,28 @@ def main():
         learning_rate,
     )
 
+    def decay_mask_fn(params):
+        flat_params = traverse_util.flatten_dict(params)
+        flat_mask = {
+            path: (path[-1] != "bias" and path[-2:] not in [("ln_1", "scale"), ("ln_2", "scale"), ("ln_f", "scale")])
+            for path in flat_params
+        }
+        return traverse_util.unflatten_dict(flat_mask)
 
+    print("-----setting up optimizer-----")
 
+    optimizer = optax.adamw(
+        learning_rate=linear_decay_lr_schedule_fn,
+        b1=0.9,
+        b2=0.98,
+        eps= 1e-08,
+        weight_decay=0.01,
+        mask=decay_mask_fn,
+    )
+
+    print("-----creating train state-----")
+
+    state = TrainState.create(apply_fn=model.__call__, params=model.params, tx=optimizer, dropout_rng=dropout_rng)
 
 
 if __name__ == '__main__':
