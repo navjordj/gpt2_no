@@ -144,7 +144,7 @@ def main():
         try:
             from flax.metrics.tensorboard import SummaryWriter
 
-            summary_writer = SummaryWriter(log_dir=Path(training_args.output_dir))
+            summary_writer = SummaryWriter(log_dir=Path("summary/"))
         except ImportError as ie:
             has_tensorboard = False
             logger.warning(
