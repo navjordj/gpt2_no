@@ -42,6 +42,8 @@ logger = logging.getLogger(__name__)
 
 def main():
 
+    print(jax.devices())
+
     print("-------- Loading Dataset --------")
 
     dataset = load_dataset("oscar", "unshuffled_deduplicated_no")
@@ -143,7 +145,7 @@ def main():
     if has_tensorboard and jax.process_index() == 0:
         try:
             from flax.metrics.tensorboard import SummaryWriter
-
+            print("using SummaryWriter for logging")
             summary_writer = SummaryWriter(log_dir=Path("summary/"))
         except ImportError as ie:
             has_tensorboard = False
