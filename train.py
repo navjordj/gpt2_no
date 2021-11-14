@@ -1,11 +1,44 @@
-from datasets import load_dataset
-import transformers
+import logging
+import math
+import os
+import sys
+import time
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Callable, Optional
 
-from transformers import AutoTokenizer, AutoConfig
+import datasets
+import numpy as np
+from datasets import Dataset, load_dataset
+from tqdm import tqdm
+
+import jax
+import jax.numpy as jnp
+import optax
+import transformers
+from flax import jax_utils, traverse_util
+from flax.jax_utils import unreplicate
+from flax.training import train_state
+from flax.training.common_utils import get_metrics, onehot, shard, shard_prng_key
+from huggingface_hub import Repository
+from transformers import (
+    CONFIG_MAPPING,
+    FLAX_MODEL_FOR_CAUSAL_LM_MAPPING,
+    AutoConfig,
+    AutoTokenizer,
+    FlaxAutoModelForCausalLM,
+    HfArgumentParser,
+    TrainingArguments,
+    is_tensorboard_available,
+    set_seed,
+)
+from transformers.file_utils import get_full_repo_name
 from transformers.testing_utils import CaptureLogger
 
 import os
 import pickle
+
+logger = logging.getLogger(__name__)
 
 def main():
 
@@ -98,10 +131,31 @@ def main():
             pickle.dump(lm_datasets, f)
 
     else:
-        print("grouped dataset on path, loading tokenized dataset")
+        print("grouped dataset on path, loading grouped dataset")
 
         with open("grouped_dataset.pkl", "rb") as f:
             lm_datasets = pickle.load(f)
+
+    train_dataset = lm_datasets["train"]
+    eval_dataset = lm_datasets["validation"]
+
+    has_tensorboard = is_tensorboard_available()
+    if has_tensorboard and jax.process_index() == 0:
+        try:
+            from flax.metrics.tensorboard import SummaryWriter
+
+            summary_writer = SummaryWriter(log_dir=Path(training_args.output_dir))
+        except ImportError as ie:
+            has_tensorboard = False
+            logger.warning(
+                f"Unable to display metrics through TensorBoard because some package are not installed: {ie}"
+            )
+    else:
+        logger.warning(
+            "Unable to display metrics through TensorBoard because the package is not installed: "
+            "Please run pip install tensorboard to enable."
+        )
+
 
 
 if __name__ == '__main__':
