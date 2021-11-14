@@ -184,6 +184,9 @@ def main():
             "Please run pip install tensorboard to enable."
         )
 
+    print("--------setting up learning procedure--------")
+
+
     rng = jax.random.PRNGKey(SEED)
     rng, dropout_rng = jax.random.split(rng)
 
@@ -193,6 +196,7 @@ def main():
     steps_per_epoch = len(train_dataset) // train_batch_size
     total_train_steps = steps_per_epoch * num_epochs
 
+    print("-----setting up learning rate scheduler-----")
 
     linear_decay_lr_schedule_fn = create_learning_rate_fn(
         len(train_dataset),
