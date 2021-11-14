@@ -68,7 +68,12 @@ class TrainState(train_state.TrainState):
 
 def main():
 
+
+    logging.basicConfig(filename="app.log", filemode="w", format='%(name)s - %(levelname)s - %(message)s')
     logger = logging.getLogger(__name__)
+    logger.warning("warning test")
+    logger.info("info test")
+
 
     jax_devices = jax.device_count()
 
@@ -230,9 +235,62 @@ def main():
         mask=decay_mask_fn,
     )
 
+
+    print("---- Loading model-----")
+
+    model = FlaxAutoModelForCausalLM.from_config(config, seed=SEED, dtype=getattr(jnp, "float32"))
+
     print("-----creating train state-----")
 
     state = TrainState.create(apply_fn=model.__call__, params=model.params, tx=optimizer, dropout_rng=dropout_rng)
+
+    def loss_fn(logits, labels):
+        shift_logits = logits[..., :-1, :]
+        shift_labels = labels[..., 1:]
+        loss = optax.softmax_cross_entropy(shift_logits, onehot(shift_labels, shift_logits.shape[-1]))
+        return loss.mean()
+
+    def train_step(state, batch):
+        dropout_rng, new_dropout_rng = jax.random.split(state.dropout_rng)
+
+        def compute_loss(params):
+            labels = batch.pop("labels")
+            logits = state.apply_fn(**batch, params=params, dropout_rng=dropout_rng, train=True)[0]
+            loss = loss_fn(logits, labels)
+            return loss
+
+        grad_fn = jax.value_and_grad(compute_loss)
+        loss, grad = grad_fn(state.params)
+        grad = jax.lax.pmean(grad, "batch")
+
+        new_state = state.apply_gradients(grads=grad, dropout_rng=new_dropout_rng)
+
+        metrics = {"loss": loss, "learning_rate": linear_decay_lr_schedule_fn(state.step)}
+        metrics = jax.lax.pmean(metrics, axis_name="batch")
+
+        return new_state, metrics
+
+    def eval_step(params, batch):
+        labels = batch.pop("labels")
+        logits = model(**batch, params=params, train=False)[0]
+        loss = loss_fn(logits, labels)
+
+        metrics = {"loss": loss}
+        metrics = jax.lax.pmean(metrics, axis_name="batch")
+        return metrics
+      
+    p_train_step = jax.pmap(train_step, "batch", donate_argnums=(0,))
+    p_eval_step = jax.pmap(eval_step, "batch")
+
+    state = state.replicate()
+
+    logger.info("***** Running training *****")
+    logger.info(f"  Num examples = {len(train_dataset)}")
+    logger.info(f"  Num Epochs = {num_epochs}")
+    logger.info(f"  Instantaneous batch size per device = {per_device_train_batch_size}")
+    logger.info(f"  Total train batch size (w. parallel & distributed) = {train_batch_size}")
+    logger.info(f"  Total optimization steps = {total_train_steps}")
+
 
 
 if __name__ == '__main__':
