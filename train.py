@@ -321,11 +321,11 @@ def main():
 
         train_start = time.time() # Time of start of training
 
-       r    ng, input_rng = jax.random.split(rng)
+        rng, input_rng = jax.random.split(rng)
 
-       train_loader = data_loader(input_rng, train_dataset, train_batch_size, shuffle=True)
+        train_loader = data_loader(input_rng, train_dataset, train_batch_size, shuffle=True)
 
-       steps_per_epoch = len(train_dataset) // train_batch_size
+        steps_per_epoch = len(train_dataset) // train_batch_size
 
         for step in tqdm(range(steps_per_epoch), desc="Training...", position=1, leave=False):
             batch = next(train_loader)
