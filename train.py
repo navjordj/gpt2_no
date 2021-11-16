@@ -47,6 +47,26 @@ per_device_eval_batch_size = 64
 warmup_steps = 1000
 learning_rate = 5e-3
 
+logging_steps = 1 # 500
+save_steps = 2500
+eval_steps=2500
+
+def data_loader(rng, dataset, batch_size, shuffle=False):
+    steps_per_epoch = len(dataset) // batch_size
+
+    if shuffle:
+        batch_idx = np.random.permutation(len(dataset))
+    else:
+        batch_idx = np.arange(len(dataset))
+
+    batch_idx = batch_idx[: steps_per_epoch * batch_size]  # Skip incomplete batch.
+    batch_idx = batch_idx.reshape((steps_per_epoch, batch_size))
+
+    for idx in batch_idx:
+        batch = dataset[idx]
+        batch = {k: np.array(v) for k, v in batch.items()}
+
+        yield batch
 
 def create_learning_rate_fn(
     train_ds_size, train_batch_size, num_train_epochs, num_warmup_steps, learning_rate):
@@ -69,11 +89,11 @@ class TrainState(train_state.TrainState):
 def main():
 
 
-    logging.basicConfig(filename="app.log", filemode="w", format='%(name)s - %(levelname)s - %(message)s')
+    logging.basicConfig(filename="app.log", level =logging.INFO)
     logger = logging.getLogger(__name__)
     logger.warning("warning test")
     logger.info("info test")
-
+    logging.info("Kom dette med da?")
 
     jax_devices = jax.device_count()
 
@@ -292,6 +312,41 @@ def main():
     logger.info(f"  Total optimization steps = {total_train_steps}")
 
 
+    train_time = 0
+    train_metrics = []
 
+    epochs = tqdm(range(num_epochs), desc="Epoch ...", position=0)
+
+    for epoch in epochs:
+
+        train_start = time.time() # Time of start of training
+
+       r    ng, input_rng = jax.random.split(rng)
+
+       train_loader = data_loader(input_rng, train_dataset, train_batch_size, shuffle=True)
+
+       steps_per_epoch = len(train_dataset) // train_batch_size
+
+        for step in tqdm(range(steps_per_epoch), desc="Training...", position=1, leave=False):
+            batch = next(train_loader)
+            batch = shard(batch) # Creates on-accelerator prefetch buffer (not neccesarry on TPUs)
+
+            state, train_metric = p_train_step(state, batch)
+            logging.info(train_metric)
+
+            train_metrics.append(train_metric)
+
+            cur_step = epoch * (len(train_dataset) // train_batch_size) + step
+
+            if cur_step % logging_steps == 0 and cur_step > 0:
+                train_metric = unreplicate(train_metric)
+                train_time + time.time() - train_start
+
+                if has_tensorboard and jax.process_index() == 0:
+                    write_train_metric(summary_writer, train_metrics, train_time, cur_step)
+
+                epochs.write( f"Step... ({cur_step} | Loss: {train_metric['loss'].mean()}, Learning Rate: {train_metric['learning_rate'].mean()})" )
+
+                train_metrics = []
 if __name__ == '__main__':
     main()

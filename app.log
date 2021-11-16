@@ -1,6 +1,14 @@
-__main__ - WARNING - warning test
-absl - INFO - Unable to initialize backend 'tpu_driver': NOT_FOUND: Unable to find driver in registry given worker: 
-absl - INFO - Unable to initialize backend 'gpu': NOT_FOUND: Could not find registered platform with name: "cuda". Available platform names are: TPU Interpreter Host
-datasets.builder - WARNING - Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
-datasets.builder - WARNING - Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
-datasets.builder - WARNING - Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+WARNING:__main__:warning test
+INFO:__main__:info test
+INFO:root:Kom dette med da?
+INFO:absl:Unable to initialize backend 'tpu_driver': NOT_FOUND: Unable to find driver in registry given worker: 
+INFO:absl:Unable to initialize backend 'gpu': NOT_FOUND: Could not find registered platform with name: "cuda". Available platform names are: Host TPU Interpreter
+WARNING:datasets.builder:Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+WARNING:datasets.builder:Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+WARNING:datasets.builder:Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+INFO:__main__:***** Running training *****
+INFO:__main__:  Num examples = 928686
+INFO:__main__:  Num Epochs = 20
+INFO:__main__:  Instantaneous batch size per device = 64
+INFO:__main__:  Total train batch size (w. parallel & distributed) = 512
+INFO:__main__:  Total optimization steps = 36260
