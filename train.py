@@ -20,7 +20,7 @@ from flax import jax_utils, traverse_util
 from flax.jax_utils import unreplicate
 from flax.training import train_state
 from flax.training.common_utils import get_metrics, onehot, shard, shard_prng_key
-from huggingface_hub import Repository
+from huggingface_hub import Repository, get_full_repo_name
 from transformers import (
     CONFIG_MAPPING,
     FLAX_MODEL_FOR_CAUSAL_LM_MAPPING,
@@ -50,6 +50,9 @@ learning_rate = 5e-3
 logging_steps = 1 # 500
 save_steps = 2500
 eval_steps=2500
+
+model_name = "gpt2_no"
+output_dir = model_name
 
 def data_loader(rng, dataset, batch_size, shuffle=False):
     steps_per_epoch = len(dataset) // batch_size
@@ -106,9 +109,6 @@ def main():
 
     logging.basicConfig(filename="app.log", level =logging.INFO)
     logger = logging.getLogger(__name__)
-    logger.warning("warning test")
-    logger.info("info test")
-    logging.info("Kom dette med da?")
 
     jax_devices = jax.device_count()
 
@@ -320,6 +320,17 @@ def main():
 
     state = state.replicate()
 
+    print("-----setting up huggingface repo------")
+
+    output_dir = "hub_gpt2_no"
+
+    repo_name = get_full_repo_name(model_name)
+
+    repo = Repository(output_dir, clone_from=repo_name)
+
+
+
+
     logger.info("***** Running training *****")
     logger.info(f"  Num examples = {len(train_dataset)}")
     logger.info(f"  Num Epochs = {num_epochs}")
@@ -348,6 +359,7 @@ def main():
             batch = shard(batch) # Creates on-accelerator prefetch buffer (not neccesarry on TPUs)
 
             state, train_metric = p_train_step(state, batch)
+            logging.info(f"Epoch {epoch}, Train step {step}")
             logging.info(train_metric)
 
             train_metrics.append(train_metric)
@@ -365,12 +377,17 @@ def main():
 
                 train_metrics = []
 
-            if cur_step % 100 == 0:
+            if cur_step % 1000 == 0:
                 # save checkpoint after each epoch and push checkpoint to the hub
                 if jax.process_index() == 0:
                     params = jax.device_get(unreplicate(state.params))
-                    model.save_pretrained("model_checkpoints/", params=params)
-                    tokenizer.save_pretrained("model_checkpoints/")
+                    model.save_pretrained(output_dir, params=params)
+                    tokenizer.save_pretrained(output_dir)
+
+                    commit_message = f"Commit after epoch {epoch}"
+
+                    repo.push_to_hub(commit_message=commit_message, blocking=False)
+
 
 if __name__ == '__main__':
     main()
