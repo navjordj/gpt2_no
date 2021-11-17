@@ -7,7 +7,7 @@ model_name = "gpt2_no"
 repo_name = get_full_repo_name(model_name)
 print(repo_name)
 
-output_dir = "hub_gpt2_no"
+output_dir = "gpt2_no"
 
 repo = Repository(output_dir, clone_from=repo_name)
 repo.git_pull()

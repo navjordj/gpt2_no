@@ -44,7 +44,7 @@ import pickle
 
 SEED=42
 
-num_train_epochs = 1
+num_train_epochs = 20
 per_device_train_batch_size = 64
 per_device_eval_batch_size = 64
 
@@ -53,9 +53,10 @@ learning_rate = 5e-3
 
 block_size =512
 
-logging_steps = 1 # 500
+logging_steps = 500
 save_steps = 2500
 eval_steps=2500
+commit_step = 1000
 
 model_name = "gpt2_no"
 output_dir = "gpt2_no"
@@ -171,9 +172,9 @@ def main():
 
         # Save files to disk
         tokenizer.save(f"./{output_dir}/tokenizer.json")
-    else:
-        print("--Using cached tokenizer--")
-        tokenizer = AutoTokenizer.from_pretrained({output_dir})
+
+    print("--Using cached tokenizer--")
+    tokenizer = AutoTokenizer.from_pretrained(f"./{output_dir}")
 
     print("-------- Tokenizing dataset --------")
 
@@ -381,6 +382,7 @@ def main():
         train_loader = data_loader(input_rng, train_dataset, train_batch_size, shuffle=True)
 
         steps_per_epoch = len(train_dataset) // train_batch_size
+        steps_per_epoch = 51
 
         for step in tqdm(range(steps_per_epoch), desc="Training...", position=1, leave=False):
             batch = next(train_loader)
@@ -405,14 +407,14 @@ def main():
 
                 train_metrics = []
 
-            if cur_step % 1000 == 0:
+            if cur_step % commit_step == 0 and cur_step > 0:
                 # save checkpoint after each epoch and push checkpoint to the hub
                 if jax.process_index() == 0:
                     params = jax.device_get(unreplicate(state.params))
                     model.save_pretrained(output_dir, params=params)
                     tokenizer.save_pretrained(output_dir)
 
-                    commit_message = f"Commit after epoch {epoch}"
+                    commit_message = f"Commit after epoch {epoch}, step {cur_step}"
 
                     repo.push_to_hub(commit_message=commit_message, blocking=False)
 
