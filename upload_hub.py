@@ -10,5 +10,6 @@ print(repo_name)
 output_dir = "hub_gpt2_no"
 
 repo = Repository(output_dir, clone_from=repo_name)
+repo.git_pull()
 
 repo.push_to_hub(commit_message="initial commit", blocking=False)
