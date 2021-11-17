@@ -51,7 +51,7 @@ per_device_eval_batch_size = 64
 warmup_steps = 1000
 learning_rate = 5e-3
 
-block_size = 512
+block_size =512
 
 logging_steps = 1 # 500
 save_steps = 2500
@@ -351,8 +351,6 @@ def main():
     state = state.replicate()
 
     print("-----setting up huggingface repo------")
-
-    output_dir = "hub_gpt2_no"
 
     repo_name = get_full_repo_name(model_name)
 
