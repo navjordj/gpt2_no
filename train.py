@@ -40,9 +40,9 @@ import pickle
 
 SEED=42
 
-num_train_epochs = 20
-per_device_train_batch_size = 32
-per_device_eval_batch_size = 32
+num_train_epochs = 1
+per_device_train_batch_size = 64
+per_device_eval_batch_size = 64
 
 warmup_steps = 1000
 learning_rate = 5e-3
@@ -198,7 +198,7 @@ def main():
         lm_datasets = lm_datasets.map(
             group_texts,
             batched=True,
-            # num_proc= None,
+            num_proc=8,
         )
 
         with open("grouped_dataset.pkl", "wb") as f:
