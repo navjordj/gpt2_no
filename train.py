@@ -121,6 +121,13 @@ def main():
 
     print(jax.devices())
 
+    print("-----setting up huggingface repo------")
+
+    repo_name = get_full_repo_name(model_name)
+
+    repo = Repository(output_dir, clone_from=repo_name)
+
+
     print("-------- Loading Dataset --------")
 
     dataset = load_dataset("oscar", "unshuffled_deduplicated_no")
@@ -349,13 +356,6 @@ def main():
     p_eval_step = jax.pmap(eval_step, "batch")
 
     state = state.replicate()
-
-    print("-----setting up huggingface repo------")
-
-    repo_name = get_full_repo_name(model_name)
-
-    repo = Repository(output_dir, clone_from=repo_name)
-
 
 
 
