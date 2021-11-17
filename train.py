@@ -31,9 +31,13 @@ from transformers import (
     TrainingArguments,
     is_tensorboard_available,
     set_seed,
+    GPT2Config,
 )
 from transformers.file_utils import get_full_repo_name
 from transformers.testing_utils import CaptureLogger
+from tokenizers import ByteLevelBPETokenizer
+
+
 
 import os
 import pickle
@@ -47,12 +51,14 @@ per_device_eval_batch_size = 64
 warmup_steps = 1000
 learning_rate = 5e-3
 
+block_size = 512
+
 logging_steps = 1 # 500
 save_steps = 2500
 eval_steps=2500
 
 model_name = "gpt2_no"
-output_dir = model_name
+output_dir = "gpt2_no"
 
 def data_loader(rng, dataset, batch_size, shuffle=False):
     steps_per_epoch = len(dataset) // batch_size
@@ -125,15 +131,42 @@ def main():
     column_names = dataset["train"].column_names
     text_column_name = "text" if "text" in column_names else column_names[0]
 
-    print("Loading config")
+    print("-----Creating config----")
 
-    config = AutoConfig.from_pretrained("navjordj/gpt2_no")
+    if not os.path.exists("{output_dir}/config.json"):
+        config = GPT2Config.from_pretrained("gpt2", resid_pdrop=0.0, embd_pdrop=0.0, attn_pdrop=0.0, vocab_size=50257)
+        config.save_pretrained(output_dir)
+    else:
+        print("---Loading pretrained config")
+        config = AutoConfig.from_pretrained(output_dir)
 
 
-    print("-------- Loading tokenizer --------")
 
 
-    tokenizer = AutoTokenizer.from_pretrained("navjordj/gpt2_no")
+    print("-------- Creating tokenizer --------")
+
+    if not os.path.exists("{output_dir}/tokenizer.json"):
+
+        tokenizer = ByteLevelBPETokenizer()
+
+        def batch_iterator(batch_size=1000):
+            for i in range(0, len(dataset), batch_size):
+                yield dataset[i: i + batch_size]["text"]
+
+        # Customized training
+        tokenizer.train_from_iterator(batch_iterator(), vocab_size=50257, min_frequency=2, special_tokens=[
+            "<s>",
+            "<pad>",
+            "</s>",
+            "<unk>",
+            "<mask>",
+        ])
+
+        # Save files to disk
+        tokenizer.save(f"./{output_dir}/tokenizer.json")
+    else:
+        print("--Using cached tokenizer--")
+        tokenizer = AutoTokenizer.from_pretrained({output_dir})
 
     print("-------- Tokenizing dataset --------")
 
@@ -141,7 +174,7 @@ def main():
 
     
 
-    if not os.path.exists("tokenized_dataset.pkl"):
+    if not os.path.exists("cached_datasets/tokenized_dataset.pkl"):
 
         def tokenize_function(examples):
             with CaptureLogger(tok_logger) as cl:
@@ -160,21 +193,18 @@ def main():
             load_from_cache_file=True,
         )
 
-        with open("tokenized_dataset.pkl", "wb") as f:
+        with open("cached_datasets/tokenized_dataset.pkl", "wb") as f:
             pickle.dump(lm_datasets, f)
     else:
         print("tokenized dataset on path, loading tokenized dataset")
 
-        with open("tokenized_dataset.pkl", "rb") as f:
+        with open("cached_datasets/tokenized_dataset.pkl", "rb") as f:
             lm_datasets = pickle.load(f)
 
 
-    # block_size = config.max_position_embeddings
-    block_size = 512
-
     print(f"-------- grouping dataset with block size {block_size}--------")
 
-    if not os.path.exists("grouped_dataset.pkl"):
+    if not os.path.exists("cached_datasets/grouped_dataset.pkl"):
 
 
 
