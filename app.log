@@ -82,3 +82,380 @@ INFO:__main__:  Num Epochs = 20
 INFO:__main__:  Instantaneous batch size per device = 64
 INFO:__main__:  Total train batch size (w. parallel & distributed) = 512
 INFO:__main__:  Total optimization steps = 36260
+WARNING:__main__:warning test
+INFO:__main__:info test
+INFO:root:Kom dette med da?
+INFO:absl:Unable to initialize backend 'tpu_driver': NOT_FOUND: Unable to find driver in registry given worker: 
+INFO:absl:Unable to initialize backend 'gpu': NOT_FOUND: Could not find registered platform with name: "cuda". Available platform names are: TPU Interpreter Host
+WARNING:datasets.builder:Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+WARNING:datasets.builder:Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+WARNING:datasets.builder:Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+INFO:__main__:***** Running training *****
+INFO:__main__:  Num examples = 928686
+INFO:__main__:  Num Epochs = 20
+INFO:__main__:  Instantaneous batch size per device = 16
+INFO:__main__:  Total train batch size (w. parallel & distributed) = 128
+INFO:__main__:  Total optimization steps = 145100
+INFO:root:{'learning_rate': ShardedDeviceArray([0., 0., 0., 0., 0., 0., 0., 0.], dtype=float32), 'loss': ShardedDeviceArray([10.918585, 10.918585, 10.918585, 10.918585, 10.918585,
+                    10.918585, 10.918585, 10.918585], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([4.9998052e-06, 4.9998052e-06, 4.9998052e-06,
+                    4.9998052e-06, 4.9998052e-06, 4.9998052e-06,
+                    4.9998052e-06, 4.9998052e-06], dtype=float32), 'loss': ShardedDeviceArray([10.918398, 10.918398, 10.918398, 10.918398, 10.918398,
+                    10.918398, 10.918398, 10.918398], dtype=float32)}
+WARNING:__main__:warning test
+INFO:__main__:info test
+INFO:root:Kom dette med da?
+INFO:absl:Unable to initialize backend 'tpu_driver': NOT_FOUND: Unable to find driver in registry given worker: 
+INFO:absl:Unable to initialize backend 'gpu': NOT_FOUND: Could not find registered platform with name: "cuda". Available platform names are: TPU Interpreter Host
+WARNING:datasets.builder:Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+WARNING:datasets.builder:Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+WARNING:datasets.builder:Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+INFO:__main__:***** Running training *****
+INFO:__main__:  Num examples = 928686
+INFO:__main__:  Num Epochs = 20
+INFO:__main__:  Instantaneous batch size per device = 16
+INFO:__main__:  Total train batch size (w. parallel & distributed) = 128
+INFO:__main__:  Total optimization steps = 145100
+INFO:root:{'learning_rate': ShardedDeviceArray([0., 0., 0., 0., 0., 0., 0., 0.], dtype=float32), 'loss': ShardedDeviceArray([10.923843, 10.923843, 10.923843, 10.923843, 10.923843,
+                    10.923843, 10.923843, 10.923843], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([4.9998052e-06, 4.9998052e-06, 4.9998052e-06,
+                    4.9998052e-06, 4.9998052e-06, 4.9998052e-06,
+                    4.9998052e-06, 4.9998052e-06], dtype=float32), 'loss': ShardedDeviceArray([10.915567, 10.915567, 10.915567, 10.915567, 10.915567,
+                    10.915567, 10.915567, 10.915567], dtype=float32)}
+WARNING:__main__:warning test
+INFO:__main__:info test
+INFO:root:Kom dette med da?
+INFO:absl:Unable to initialize backend 'tpu_driver': NOT_FOUND: Unable to find driver in registry given worker: 
+INFO:absl:Unable to initialize backend 'gpu': NOT_FOUND: Could not find registered platform with name: "cuda". Available platform names are: Host Interpreter TPU
+WARNING:datasets.builder:Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+WARNING:datasets.builder:Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+WARNING:datasets.builder:Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+INFO:__main__:***** Running training *****
+INFO:__main__:  Num examples = 928686
+INFO:__main__:  Num Epochs = 20
+INFO:__main__:  Instantaneous batch size per device = 16
+INFO:__main__:  Total train batch size (w. parallel & distributed) = 128
+INFO:__main__:  Total optimization steps = 145100
+INFO:root:{'learning_rate': ShardedDeviceArray([0., 0., 0., 0., 0., 0., 0., 0.], dtype=float32), 'loss': ShardedDeviceArray([10.91587, 10.91587, 10.91587, 10.91587, 10.91587,
+                    10.91587, 10.91587, 10.91587], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([4.9998052e-06, 4.9998052e-06, 4.9998052e-06,
+                    4.9998052e-06, 4.9998052e-06, 4.9998052e-06,
+                    4.9998052e-06, 4.9998052e-06], dtype=float32), 'loss': ShardedDeviceArray([10.915291, 10.915291, 10.915291, 10.915291, 10.915291,
+                    10.915291, 10.915291, 10.915291], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([1.0000076e-05, 1.0000076e-05, 1.0000076e-05,
+                    1.0000076e-05, 1.0000076e-05, 1.0000076e-05,
+                    1.0000076e-05, 1.0000076e-05], dtype=float32), 'loss': ShardedDeviceArray([10.823686, 10.823686, 10.823686, 10.823686, 10.823686,
+                    10.823686, 10.823686, 10.823686], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([1.4999881e-05, 1.4999881e-05, 1.4999881e-05,
+                    1.4999881e-05, 1.4999881e-05, 1.4999881e-05,
+                    1.4999881e-05, 1.4999881e-05], dtype=float32), 'loss': ShardedDeviceArray([10.646212, 10.646212, 10.646212, 10.646212, 10.646212,
+                    10.646212, 10.646212, 10.646212], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([2.0000152e-05, 2.0000152e-05, 2.0000152e-05,
+                    2.0000152e-05, 2.0000152e-05, 2.0000152e-05,
+                    2.0000152e-05, 2.0000152e-05], dtype=float32), 'loss': ShardedDeviceArray([10.458776, 10.458776, 10.458776, 10.458776, 10.458776,
+                    10.458776, 10.458776, 10.458776], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([2.4999958e-05, 2.4999958e-05, 2.4999958e-05,
+                    2.4999958e-05, 2.4999958e-05, 2.4999958e-05,
+                    2.4999958e-05, 2.4999958e-05], dtype=float32), 'loss': ShardedDeviceArray([10.30043, 10.30043, 10.30043, 10.30043, 10.30043,
+                    10.30043, 10.30043, 10.30043], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([2.9999763e-05, 2.9999763e-05, 2.9999763e-05,
+                    2.9999763e-05, 2.9999763e-05, 2.9999763e-05,
+                    2.9999763e-05, 2.9999763e-05], dtype=float32), 'loss': ShardedDeviceArray([10.188234, 10.188234, 10.188234, 10.188234, 10.188234,
+                    10.188234, 10.188234, 10.188234], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([3.5000034e-05, 3.5000034e-05, 3.5000034e-05,
+                    3.5000034e-05, 3.5000034e-05, 3.5000034e-05,
+                    3.5000034e-05, 3.5000034e-05], dtype=float32), 'loss': ShardedDeviceArray([10.081848, 10.081848, 10.081848, 10.081848, 10.081848,
+                    10.081848, 10.081848, 10.081848], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([4.0000305e-05, 4.0000305e-05, 4.0000305e-05,
+                    4.0000305e-05, 4.0000305e-05, 4.0000305e-05,
+                    4.0000305e-05, 4.0000305e-05], dtype=float32), 'loss': ShardedDeviceArray([10.003712, 10.003712, 10.003712, 10.003712, 10.003712,
+                    10.003712, 10.003712, 10.003712], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([4.500011e-05, 4.500011e-05, 4.500011e-05,
+                    4.500011e-05, 4.500011e-05, 4.500011e-05,
+                    4.500011e-05, 4.500011e-05], dtype=float32), 'loss': ShardedDeviceArray([9.924955, 9.924955, 9.924955, 9.924955, 9.924955,
+                    9.924955, 9.924955, 9.924955], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([4.9999915e-05, 4.9999915e-05, 4.9999915e-05,
+                    4.9999915e-05, 4.9999915e-05, 4.9999915e-05,
+                    4.9999915e-05, 4.9999915e-05], dtype=float32), 'loss': ShardedDeviceArray([9.842123, 9.842123, 9.842123, 9.842123, 9.842123,
+                    9.842123, 9.842123, 9.842123], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([5.499972e-05, 5.499972e-05, 5.499972e-05,
+                    5.499972e-05, 5.499972e-05, 5.499972e-05,
+                    5.499972e-05, 5.499972e-05], dtype=float32), 'loss': ShardedDeviceArray([9.775854, 9.775854, 9.775854, 9.775854, 9.775854,
+                    9.775854, 9.775854, 9.775854], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([5.999999e-05, 5.999999e-05, 5.999999e-05,
+                    5.999999e-05, 5.999999e-05, 5.999999e-05,
+                    5.999999e-05, 5.999999e-05], dtype=float32), 'loss': ShardedDeviceArray([9.734982, 9.734982, 9.734982, 9.734982, 9.734982,
+                    9.734982, 9.734982, 9.734982], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([6.500026e-05, 6.500026e-05, 6.500026e-05,
+                    6.500026e-05, 6.500026e-05, 6.500026e-05,
+                    6.500026e-05, 6.500026e-05], dtype=float32), 'loss': ShardedDeviceArray([9.700698, 9.700698, 9.700698, 9.700698, 9.700698,
+                    9.700698, 9.700698, 9.700698], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([7.000007e-05, 7.000007e-05, 7.000007e-05,
+                    7.000007e-05, 7.000007e-05, 7.000007e-05,
+                    7.000007e-05, 7.000007e-05], dtype=float32), 'loss': ShardedDeviceArray([9.646293, 9.646293, 9.646293, 9.646293, 9.646293,
+                    9.646293, 9.646293, 9.646293], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([7.499987e-05, 7.499987e-05, 7.499987e-05,
+                    7.499987e-05, 7.499987e-05, 7.499987e-05,
+                    7.499987e-05, 7.499987e-05], dtype=float32), 'loss': ShardedDeviceArray([9.622629, 9.622629, 9.622629, 9.622629, 9.622629,
+                    9.622629, 9.622629, 9.622629], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([7.999968e-05, 7.999968e-05, 7.999968e-05,
+                    7.999968e-05, 7.999968e-05, 7.999968e-05,
+                    7.999968e-05, 7.999968e-05], dtype=float32), 'loss': ShardedDeviceArray([9.558628, 9.558628, 9.558628, 9.558628, 9.558628,
+                    9.558628, 9.558628, 9.558628], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([8.499995e-05, 8.499995e-05, 8.499995e-05,
+                    8.499995e-05, 8.499995e-05, 8.499995e-05,
+                    8.499995e-05, 8.499995e-05], dtype=float32), 'loss': ShardedDeviceArray([9.508362, 9.508362, 9.508362, 9.508362, 9.508362,
+                    9.508362, 9.508362, 9.508362], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([9.000022e-05, 9.000022e-05, 9.000022e-05,
+                    9.000022e-05, 9.000022e-05, 9.000022e-05,
+                    9.000022e-05, 9.000022e-05], dtype=float32), 'loss': ShardedDeviceArray([9.449938, 9.449938, 9.449938, 9.449938, 9.449938,
+                    9.449938, 9.449938, 9.449938], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([9.5000025e-05, 9.5000025e-05, 9.5000025e-05,
+                    9.5000025e-05, 9.5000025e-05, 9.5000025e-05,
+                    9.5000025e-05, 9.5000025e-05], dtype=float32), 'loss': ShardedDeviceArray([9.370195, 9.370195, 9.370195, 9.370195, 9.370195,
+                    9.370195, 9.370195, 9.370195], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([9.999983e-05, 9.999983e-05, 9.999983e-05,
+                    9.999983e-05, 9.999983e-05, 9.999983e-05,
+                    9.999983e-05, 9.999983e-05], dtype=float32), 'loss': ShardedDeviceArray([9.316807, 9.316807, 9.316807, 9.316807, 9.316807,
+                    9.316807, 9.316807, 9.316807], dtype=float32)}
+WARNING:__main__:warning test
+INFO:__main__:info test
+INFO:root:Kom dette med da?
+INFO:absl:Unable to initialize backend 'tpu_driver': NOT_FOUND: Unable to find driver in registry given worker: 
+INFO:absl:Unable to initialize backend 'gpu': NOT_FOUND: Could not find registered platform with name: "cuda". Available platform names are: Interpreter Host TPU
+WARNING:datasets.builder:Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+WARNING:datasets.builder:Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+WARNING:datasets.builder:Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+INFO:__main__:***** Running training *****
+INFO:__main__:  Num examples = 928686
+INFO:__main__:  Num Epochs = 20
+INFO:__main__:  Instantaneous batch size per device = 64
+INFO:__main__:  Total train batch size (w. parallel & distributed) = 512
+INFO:__main__:  Total optimization steps = 36260
+WARNING:__main__:warning test
+INFO:__main__:info test
+INFO:root:Kom dette med da?
+INFO:absl:Unable to initialize backend 'tpu_driver': NOT_FOUND: Unable to find driver in registry given worker: 
+INFO:absl:Unable to initialize backend 'gpu': NOT_FOUND: Could not find registered platform with name: "cuda". Available platform names are: Host TPU Interpreter
+WARNING:datasets.builder:Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+WARNING:datasets.builder:Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+WARNING:datasets.builder:Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+INFO:__main__:***** Running training *****
+INFO:__main__:  Num examples = 928686
+INFO:__main__:  Num Epochs = 20
+INFO:__main__:  Instantaneous batch size per device = 48
+INFO:__main__:  Total train batch size (w. parallel & distributed) = 384
+INFO:__main__:  Total optimization steps = 48360
+WARNING:__main__:warning test
+INFO:__main__:info test
+INFO:root:Kom dette med da?
+INFO:absl:Unable to initialize backend 'tpu_driver': NOT_FOUND: Unable to find driver in registry given worker: 
+INFO:absl:Unable to initialize backend 'gpu': NOT_FOUND: Could not find registered platform with name: "cuda". Available platform names are: TPU Host Interpreter
+WARNING:datasets.builder:Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+WARNING:datasets.builder:Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+WARNING:datasets.builder:Reusing dataset oscar (/home/navjordj/.cache/huggingface/datasets/oscar/unshuffled_deduplicated_no/1.0.0/84838bd49d2295f62008383b05620571535451d84545037bb94d6f3501651df2)
+INFO:__main__:***** Running training *****
+INFO:__main__:  Num examples = 928686
+INFO:__main__:  Num Epochs = 20
+INFO:__main__:  Instantaneous batch size per device = 32
+INFO:__main__:  Total train batch size (w. parallel & distributed) = 256
+INFO:__main__:  Total optimization steps = 72540
+INFO:root:{'learning_rate': ShardedDeviceArray([0., 0., 0., 0., 0., 0., 0., 0.], dtype=float32), 'loss': ShardedDeviceArray([10.921, 10.921, 10.921, 10.921, 10.921, 10.921,
+                    10.921, 10.921], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([4.9998052e-06, 4.9998052e-06, 4.9998052e-06,
+                    4.9998052e-06, 4.9998052e-06, 4.9998052e-06,
+                    4.9998052e-06, 4.9998052e-06], dtype=float32), 'loss': ShardedDeviceArray([10.915239, 10.915239, 10.915239, 10.915239, 10.915239,
+                    10.915239, 10.915239, 10.915239], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([1.0000076e-05, 1.0000076e-05, 1.0000076e-05,
+                    1.0000076e-05, 1.0000076e-05, 1.0000076e-05,
+                    1.0000076e-05, 1.0000076e-05], dtype=float32), 'loss': ShardedDeviceArray([10.819449, 10.819449, 10.819449, 10.819449, 10.819449,
+                    10.819449, 10.819449, 10.819449], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([1.4999881e-05, 1.4999881e-05, 1.4999881e-05,
+                    1.4999881e-05, 1.4999881e-05, 1.4999881e-05,
+                    1.4999881e-05, 1.4999881e-05], dtype=float32), 'loss': ShardedDeviceArray([10.642213, 10.642213, 10.642213, 10.642213, 10.642213,
+                    10.642213, 10.642213, 10.642213], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([2.0000152e-05, 2.0000152e-05, 2.0000152e-05,
+                    2.0000152e-05, 2.0000152e-05, 2.0000152e-05,
+                    2.0000152e-05, 2.0000152e-05], dtype=float32), 'loss': ShardedDeviceArray([10.457016, 10.457016, 10.457016, 10.457016, 10.457016,
+                    10.457016, 10.457016, 10.457016], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([2.4999958e-05, 2.4999958e-05, 2.4999958e-05,
+                    2.4999958e-05, 2.4999958e-05, 2.4999958e-05,
+                    2.4999958e-05, 2.4999958e-05], dtype=float32), 'loss': ShardedDeviceArray([10.306113, 10.306113, 10.306113, 10.306113, 10.306113,
+                    10.306113, 10.306113, 10.306113], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([2.9999763e-05, 2.9999763e-05, 2.9999763e-05,
+                    2.9999763e-05, 2.9999763e-05, 2.9999763e-05,
+                    2.9999763e-05, 2.9999763e-05], dtype=float32), 'loss': ShardedDeviceArray([10.168749, 10.168749, 10.168749, 10.168749, 10.168749,
+                    10.168749, 10.168749, 10.168749], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([3.5000034e-05, 3.5000034e-05, 3.5000034e-05,
+                    3.5000034e-05, 3.5000034e-05, 3.5000034e-05,
+                    3.5000034e-05, 3.5000034e-05], dtype=float32), 'loss': ShardedDeviceArray([10.074838, 10.074838, 10.074838, 10.074838, 10.074838,
+                    10.074838, 10.074838, 10.074838], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([4.0000305e-05, 4.0000305e-05, 4.0000305e-05,
+                    4.0000305e-05, 4.0000305e-05, 4.0000305e-05,
+                    4.0000305e-05, 4.0000305e-05], dtype=float32), 'loss': ShardedDeviceArray([9.98387, 9.98387, 9.98387, 9.98387, 9.98387, 9.98387,
+                    9.98387, 9.98387], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([4.500011e-05, 4.500011e-05, 4.500011e-05,
+                    4.500011e-05, 4.500011e-05, 4.500011e-05,
+                    4.500011e-05, 4.500011e-05], dtype=float32), 'loss': ShardedDeviceArray([9.908844, 9.908844, 9.908844, 9.908844, 9.908844,
+                    9.908844, 9.908844, 9.908844], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([4.9999915e-05, 4.9999915e-05, 4.9999915e-05,
+                    4.9999915e-05, 4.9999915e-05, 4.9999915e-05,
+                    4.9999915e-05, 4.9999915e-05], dtype=float32), 'loss': ShardedDeviceArray([9.83367, 9.83367, 9.83367, 9.83367, 9.83367, 9.83367,
+                    9.83367, 9.83367], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([5.499972e-05, 5.499972e-05, 5.499972e-05,
+                    5.499972e-05, 5.499972e-05, 5.499972e-05,
+                    5.499972e-05, 5.499972e-05], dtype=float32), 'loss': ShardedDeviceArray([9.788046, 9.788046, 9.788046, 9.788046, 9.788046,
+                    9.788046, 9.788046, 9.788046], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([5.999999e-05, 5.999999e-05, 5.999999e-05,
+                    5.999999e-05, 5.999999e-05, 5.999999e-05,
+                    5.999999e-05, 5.999999e-05], dtype=float32), 'loss': ShardedDeviceArray([9.722644, 9.722644, 9.722644, 9.722644, 9.722644,
+                    9.722644, 9.722644, 9.722644], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([6.500026e-05, 6.500026e-05, 6.500026e-05,
+                    6.500026e-05, 6.500026e-05, 6.500026e-05,
+                    6.500026e-05, 6.500026e-05], dtype=float32), 'loss': ShardedDeviceArray([9.678301, 9.678301, 9.678301, 9.678301, 9.678301,
+                    9.678301, 9.678301, 9.678301], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([7.000007e-05, 7.000007e-05, 7.000007e-05,
+                    7.000007e-05, 7.000007e-05, 7.000007e-05,
+                    7.000007e-05, 7.000007e-05], dtype=float32), 'loss': ShardedDeviceArray([9.647797, 9.647797, 9.647797, 9.647797, 9.647797,
+                    9.647797, 9.647797, 9.647797], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([7.499987e-05, 7.499987e-05, 7.499987e-05,
+                    7.499987e-05, 7.499987e-05, 7.499987e-05,
+                    7.499987e-05, 7.499987e-05], dtype=float32), 'loss': ShardedDeviceArray([9.611307, 9.611307, 9.611307, 9.611307, 9.611307,
+                    9.611307, 9.611307, 9.611307], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([7.999968e-05, 7.999968e-05, 7.999968e-05,
+                    7.999968e-05, 7.999968e-05, 7.999968e-05,
+                    7.999968e-05, 7.999968e-05], dtype=float32), 'loss': ShardedDeviceArray([9.543741, 9.543741, 9.543741, 9.543741, 9.543741,
+                    9.543741, 9.543741, 9.543741], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([8.499995e-05, 8.499995e-05, 8.499995e-05,
+                    8.499995e-05, 8.499995e-05, 8.499995e-05,
+                    8.499995e-05, 8.499995e-05], dtype=float32), 'loss': ShardedDeviceArray([9.492926, 9.492926, 9.492926, 9.492926, 9.492926,
+                    9.492926, 9.492926, 9.492926], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([9.000022e-05, 9.000022e-05, 9.000022e-05,
+                    9.000022e-05, 9.000022e-05, 9.000022e-05,
+                    9.000022e-05, 9.000022e-05], dtype=float32), 'loss': ShardedDeviceArray([9.431124, 9.431124, 9.431124, 9.431124, 9.431124,
+                    9.431124, 9.431124, 9.431124], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([9.5000025e-05, 9.5000025e-05, 9.5000025e-05,
+                    9.5000025e-05, 9.5000025e-05, 9.5000025e-05,
+                    9.5000025e-05, 9.5000025e-05], dtype=float32), 'loss': ShardedDeviceArray([9.375795, 9.375795, 9.375795, 9.375795, 9.375795,
+                    9.375795, 9.375795, 9.375795], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([9.999983e-05, 9.999983e-05, 9.999983e-05,
+                    9.999983e-05, 9.999983e-05, 9.999983e-05,
+                    9.999983e-05, 9.999983e-05], dtype=float32), 'loss': ShardedDeviceArray([9.300451, 9.300451, 9.300451, 9.300451, 9.300451,
+                    9.300451, 9.300451, 9.300451], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.000105, 0.000105, 0.000105, 0.000105, 0.000105,
+                    0.000105, 0.000105, 0.000105], dtype=float32), 'loss': ShardedDeviceArray([9.228337, 9.228337, 9.228337, 9.228337, 9.228337,
+                    9.228337, 9.228337, 9.228337], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.00011, 0.00011, 0.00011, 0.00011, 0.00011, 0.00011,
+                    0.00011, 0.00011], dtype=float32), 'loss': ShardedDeviceArray([9.172834, 9.172834, 9.172834, 9.172834, 9.172834,
+                    9.172834, 9.172834, 9.172834], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.000115, 0.000115, 0.000115, 0.000115, 0.000115,
+                    0.000115, 0.000115, 0.000115], dtype=float32), 'loss': ShardedDeviceArray([9.111328, 9.111328, 9.111328, 9.111328, 9.111328,
+                    9.111328, 9.111328, 9.111328], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.00012, 0.00012, 0.00012, 0.00012, 0.00012, 0.00012,
+                    0.00012, 0.00012], dtype=float32), 'loss': ShardedDeviceArray([9.025019, 9.025019, 9.025019, 9.025019, 9.025019,
+                    9.025019, 9.025019, 9.025019], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.000125, 0.000125, 0.000125, 0.000125, 0.000125,
+                    0.000125, 0.000125, 0.000125], dtype=float32), 'loss': ShardedDeviceArray([8.918434, 8.918434, 8.918434, 8.918434, 8.918434,
+                    8.918434, 8.918434, 8.918434], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.00013, 0.00013, 0.00013, 0.00013, 0.00013, 0.00013,
+                    0.00013, 0.00013], dtype=float32), 'loss': ShardedDeviceArray([8.869177, 8.869177, 8.869177, 8.869177, 8.869177,
+                    8.869177, 8.869177, 8.869177], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.000135, 0.000135, 0.000135, 0.000135, 0.000135,
+                    0.000135, 0.000135, 0.000135], dtype=float32), 'loss': ShardedDeviceArray([8.77949, 8.77949, 8.77949, 8.77949, 8.77949, 8.77949,
+                    8.77949, 8.77949], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.00014, 0.00014, 0.00014, 0.00014, 0.00014, 0.00014,
+                    0.00014, 0.00014], dtype=float32), 'loss': ShardedDeviceArray([8.713583, 8.713583, 8.713583, 8.713583, 8.713583,
+                    8.713583, 8.713583, 8.713583], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.000145, 0.000145, 0.000145, 0.000145, 0.000145,
+                    0.000145, 0.000145, 0.000145], dtype=float32), 'loss': ShardedDeviceArray([8.673754, 8.673754, 8.673754, 8.673754, 8.673754,
+                    8.673754, 8.673754, 8.673754], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.00015, 0.00015, 0.00015, 0.00015, 0.00015, 0.00015,
+                    0.00015, 0.00015], dtype=float32), 'loss': ShardedDeviceArray([8.598574, 8.598574, 8.598574, 8.598574, 8.598574,
+                    8.598574, 8.598574, 8.598574], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.000155, 0.000155, 0.000155, 0.000155, 0.000155,
+                    0.000155, 0.000155, 0.000155], dtype=float32), 'loss': ShardedDeviceArray([8.520115, 8.520115, 8.520115, 8.520115, 8.520115,
+                    8.520115, 8.520115, 8.520115], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.00016, 0.00016, 0.00016, 0.00016, 0.00016, 0.00016,
+                    0.00016, 0.00016], dtype=float32), 'loss': ShardedDeviceArray([8.436625, 8.436625, 8.436625, 8.436625, 8.436625,
+                    8.436625, 8.436625, 8.436625], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.000165, 0.000165, 0.000165, 0.000165, 0.000165,
+                    0.000165, 0.000165, 0.000165], dtype=float32), 'loss': ShardedDeviceArray([8.395975, 8.395975, 8.395975, 8.395975, 8.395975,
+                    8.395975, 8.395975, 8.395975], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.00017, 0.00017, 0.00017, 0.00017, 0.00017, 0.00017,
+                    0.00017, 0.00017], dtype=float32), 'loss': ShardedDeviceArray([8.32464, 8.32464, 8.32464, 8.32464, 8.32464, 8.32464,
+                    8.32464, 8.32464], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.000175, 0.000175, 0.000175, 0.000175, 0.000175,
+                    0.000175, 0.000175, 0.000175], dtype=float32), 'loss': ShardedDeviceArray([8.2736635, 8.2736635, 8.2736635, 8.2736635, 8.2736635,
+                    8.2736635, 8.2736635, 8.2736635], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.00018, 0.00018, 0.00018, 0.00018, 0.00018, 0.00018,
+                    0.00018, 0.00018], dtype=float32), 'loss': ShardedDeviceArray([8.165041, 8.165041, 8.165041, 8.165041, 8.165041,
+                    8.165041, 8.165041, 8.165041], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.000185, 0.000185, 0.000185, 0.000185, 0.000185,
+                    0.000185, 0.000185, 0.000185], dtype=float32), 'loss': ShardedDeviceArray([8.1395, 8.1395, 8.1395, 8.1395, 8.1395, 8.1395,
+                    8.1395, 8.1395], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.00019, 0.00019, 0.00019, 0.00019, 0.00019, 0.00019,
+                    0.00019, 0.00019], dtype=float32), 'loss': ShardedDeviceArray([8.09716, 8.09716, 8.09716, 8.09716, 8.09716, 8.09716,
+                    8.09716, 8.09716], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.000195, 0.000195, 0.000195, 0.000195, 0.000195,
+                    0.000195, 0.000195, 0.000195], dtype=float32), 'loss': ShardedDeviceArray([8.074429, 8.074429, 8.074429, 8.074429, 8.074429,
+                    8.074429, 8.074429, 8.074429], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.0002, 0.0002, 0.0002, 0.0002, 0.0002, 0.0002,
+                    0.0002, 0.0002], dtype=float32), 'loss': ShardedDeviceArray([8.0289, 8.0289, 8.0289, 8.0289, 8.0289, 8.0289,
+                    8.0289, 8.0289], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.000205, 0.000205, 0.000205, 0.000205, 0.000205,
+                    0.000205, 0.000205, 0.000205], dtype=float32), 'loss': ShardedDeviceArray([7.987911, 7.987911, 7.987911, 7.987911, 7.987911,
+                    7.987911, 7.987911, 7.987911], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.00021, 0.00021, 0.00021, 0.00021, 0.00021, 0.00021,
+                    0.00021, 0.00021], dtype=float32), 'loss': ShardedDeviceArray([7.9902687, 7.9902687, 7.9902687, 7.9902687, 7.9902687,
+                    7.9902687, 7.9902687, 7.9902687], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.000215, 0.000215, 0.000215, 0.000215, 0.000215,
+                    0.000215, 0.000215, 0.000215], dtype=float32), 'loss': ShardedDeviceArray([7.926594, 7.926594, 7.926594, 7.926594, 7.926594,
+                    7.926594, 7.926594, 7.926594], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.00022, 0.00022, 0.00022, 0.00022, 0.00022, 0.00022,
+                    0.00022, 0.00022], dtype=float32), 'loss': ShardedDeviceArray([7.908821, 7.908821, 7.908821, 7.908821, 7.908821,
+                    7.908821, 7.908821, 7.908821], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.000225, 0.000225, 0.000225, 0.000225, 0.000225,
+                    0.000225, 0.000225, 0.000225], dtype=float32), 'loss': ShardedDeviceArray([7.8741927, 7.8741927, 7.8741927, 7.8741927, 7.8741927,
+                    7.8741927, 7.8741927, 7.8741927], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.00023, 0.00023, 0.00023, 0.00023, 0.00023, 0.00023,
+                    0.00023, 0.00023], dtype=float32), 'loss': ShardedDeviceArray([7.89816, 7.89816, 7.89816, 7.89816, 7.89816, 7.89816,
+                    7.89816, 7.89816], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.000235, 0.000235, 0.000235, 0.000235, 0.000235,
+                    0.000235, 0.000235, 0.000235], dtype=float32), 'loss': ShardedDeviceArray([7.9060364, 7.9060364, 7.9060364, 7.9060364, 7.9060364,
+                    7.9060364, 7.9060364, 7.9060364], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.00024, 0.00024, 0.00024, 0.00024, 0.00024, 0.00024,
+                    0.00024, 0.00024], dtype=float32), 'loss': ShardedDeviceArray([7.8764853, 7.8764853, 7.8764853, 7.8764853, 7.8764853,
+                    7.8764853, 7.8764853, 7.8764853], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.000245, 0.000245, 0.000245, 0.000245, 0.000245,
+                    0.000245, 0.000245, 0.000245], dtype=float32), 'loss': ShardedDeviceArray([7.850822, 7.850822, 7.850822, 7.850822, 7.850822,
+                    7.850822, 7.850822, 7.850822], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.00025, 0.00025, 0.00025, 0.00025, 0.00025, 0.00025,
+                    0.00025, 0.00025], dtype=float32), 'loss': ShardedDeviceArray([7.876539, 7.876539, 7.876539, 7.876539, 7.876539,
+                    7.876539, 7.876539, 7.876539], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.000255, 0.000255, 0.000255, 0.000255, 0.000255,
+                    0.000255, 0.000255, 0.000255], dtype=float32), 'loss': ShardedDeviceArray([7.8654075, 7.8654075, 7.8654075, 7.8654075, 7.8654075,
+                    7.8654075, 7.8654075, 7.8654075], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.00026, 0.00026, 0.00026, 0.00026, 0.00026, 0.00026,
+                    0.00026, 0.00026], dtype=float32), 'loss': ShardedDeviceArray([7.882866, 7.882866, 7.882866, 7.882866, 7.882866,
+                    7.882866, 7.882866, 7.882866], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.000265, 0.000265, 0.000265, 0.000265, 0.000265,
+                    0.000265, 0.000265, 0.000265], dtype=float32), 'loss': ShardedDeviceArray([7.883865, 7.883865, 7.883865, 7.883865, 7.883865,
+                    7.883865, 7.883865, 7.883865], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.00027, 0.00027, 0.00027, 0.00027, 0.00027, 0.00027,
+                    0.00027, 0.00027], dtype=float32), 'loss': ShardedDeviceArray([7.84074, 7.84074, 7.84074, 7.84074, 7.84074, 7.84074,
+                    7.84074, 7.84074], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.000275, 0.000275, 0.000275, 0.000275, 0.000275,
+                    0.000275, 0.000275, 0.000275], dtype=float32), 'loss': ShardedDeviceArray([7.8875146, 7.8875146, 7.8875146, 7.8875146, 7.8875146,
+                    7.8875146, 7.8875146, 7.8875146], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.00028, 0.00028, 0.00028, 0.00028, 0.00028, 0.00028,
+                    0.00028, 0.00028], dtype=float32), 'loss': ShardedDeviceArray([7.8346596, 7.8346596, 7.8346596, 7.8346596, 7.8346596,
+                    7.8346596, 7.8346596, 7.8346596], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.000285, 0.000285, 0.000285, 0.000285, 0.000285,
+                    0.000285, 0.000285, 0.000285], dtype=float32), 'loss': ShardedDeviceArray([7.788613, 7.788613, 7.788613, 7.788613, 7.788613,
+                    7.788613, 7.788613, 7.788613], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.00029, 0.00029, 0.00029, 0.00029, 0.00029, 0.00029,
+                    0.00029, 0.00029], dtype=float32), 'loss': ShardedDeviceArray([7.8087068, 7.8087068, 7.8087068, 7.8087068, 7.8087068,
+                    7.8087068, 7.8087068, 7.8087068], dtype=float32)}
+INFO:root:{'learning_rate': ShardedDeviceArray([0.000295, 0.000295, 0.000295, 0.000295, 0.000295,
+                    0.000295, 0.000295, 0.000295], dtype=float32), 'loss': ShardedDeviceArray([7.7637806, 7.7637806, 7.7637806, 7.7637806, 7.7637806,
+                    7.7637806, 7.7637806, 7.7637806], dtype=float32)}
