@@ -169,9 +169,10 @@ def main():
             lm_datasets = pickle.load(f)
 
 
-    block_size = config.max_position_embeddings
+    # block_size = config.max_position_embeddings
+    block_size = 512
 
-    print("-------- grouping dataset --------")
+    print(f"-------- grouping dataset with block size {block_size}--------")
 
     if not os.path.exists("grouped_dataset.pkl"):
 
@@ -363,5 +364,13 @@ def main():
                 epochs.write( f"Step... ({cur_step} | Loss: {train_metric['loss'].mean()}, Learning Rate: {train_metric['learning_rate'].mean()})" )
 
                 train_metrics = []
+
+            if cur_step % 100 == 0:
+                # save checkpoint after each epoch and push checkpoint to the hub
+                if jax.process_index() == 0:
+                    params = jax.device_get(unreplicate(state.params))
+                    model.save_pretrained("model_checkpoints/", params=params)
+                    tokenizer.save_pretrained("model_checkpoints/")
+
 if __name__ == '__main__':
     main()
