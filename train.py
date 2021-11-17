@@ -151,7 +151,7 @@ def main():
 
         def batch_iterator(batch_size=1000):
             for i in range(0, len(dataset), batch_size):
-                yield dataset[i: i + batch_size]["text"]
+                yield dataset["train"][i: i + batch_size]["text"]
 
         # Customized training
         tokenizer.train_from_iterator(batch_iterator(), vocab_size=50257, min_frequency=2, special_tokens=[
@@ -237,7 +237,7 @@ def main():
     else:
         print("grouped dataset on path, loading grouped dataset")
 
-        with open("grouped_dataset.pkl", "rb") as f:
+        with open("cached_datasets/grouped_dataset.pkl", "rb") as f:
             lm_datasets = pickle.load(f)
 
     train_dataset = lm_datasets["train"]
